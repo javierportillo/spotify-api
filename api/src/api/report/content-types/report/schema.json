@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reports",
+  "info": {
+    "singularName": "report",
+    "pluralName": "reports",
+    "displayName": "report"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "totalUsers": {
+      "type": "integer"
+    },
+    "popularTracks": {
+      "type": "json"
+    },
+    "monthlyActivity": {
+      "type": "json"
+    },
+    "generatedAt": {
+      "type": "datetime"
+    }
+  }
+}
