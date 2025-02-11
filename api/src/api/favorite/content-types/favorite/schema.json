@@ -31,6 +31,12 @@
     },
     "addedAt": {
       "type": "datetime"
+    },
+    "playlists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::playlist.playlist",
+      "mappedBy": "tracks"
     }
   }
 }

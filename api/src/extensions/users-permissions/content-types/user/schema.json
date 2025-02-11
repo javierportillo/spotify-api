@@ -73,6 +73,12 @@
       "relation": "oneToMany",
       "target": "api::favorite.favorite",
       "mappedBy": "user"
+    },
+    "playlists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::playlist.playlist",
+      "mappedBy": "user"
     }
   }
 }
