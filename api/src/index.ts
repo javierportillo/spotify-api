@@ -19,7 +19,7 @@ export default {
           secret: process.env.SPOTIFY_CLIENT_SECRET,
           // callback: `${strapi.config.server.url}/api/auth/spotify/callback`,
           callback: "/spotify-callback.html",
-          scope: ["user-read-email", "user-library-read"],
+          scope: ["user-read-email", "user-library-read", "user-top-read"],
           authorize_url: "https://accounts.spotify.com/authorize",
           access_url: "https://accounts.spotify.com/api/token",
           oauth: 2,

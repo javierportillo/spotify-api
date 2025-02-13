@@ -21,5 +21,13 @@ export default {
         middlewares: ["api::spotify.has-query-param"],
       },
     },
+    {
+      method: "GET",
+      path: "/recommendations",
+      handler: "spotify.recommendations",
+      config: {
+        policies: ["has-spotify-token"],
+      },
+    },
   ],
 };

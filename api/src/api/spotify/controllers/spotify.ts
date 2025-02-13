@@ -40,4 +40,21 @@ export default {
       return ctx.internalServerError("Failed to fetch data from Spotify");
     }
   },
+
+  async recommendations(ctx: any) {
+    try {
+      const res = await fetch(
+        "https://api.spotify.com/v1/me/top/tracks?limit=10&time_range=long_term",
+        {
+          headers: { Authorization: `Bearer ${ctx.state.user.accessToken}` },
+        },
+      );
+
+      const data = await res.text();
+      return ctx.send(data);
+    } catch (error) {
+      console.error(error);
+      return ctx.internalServerError("Failed to fetch recommendations");
+    }
+  },
 };
