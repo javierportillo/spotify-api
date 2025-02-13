@@ -17,6 +17,7 @@ services:
       API_TOKEN_SALT: ${API_TOKEN_SALT}
       TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT}
       APP_KEYS: ${APP_KEYS}
+      HOST_URL: ${HOST_URL}
       NODE_ENV: ${NODE_ENV}
     volumes:
       - ./api/config:/opt/app/config
