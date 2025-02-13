@@ -85,6 +85,10 @@
       "relation": "oneToMany",
       "target": "api::history.history",
       "mappedBy": "user"
+    },
+    "accessToken": {
+      "type": "string",
+      "private": true
     }
   }
 }

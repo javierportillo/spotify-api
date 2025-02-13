@@ -36,12 +36,33 @@ export default {
             display_name: string;
           };
 
-          return {
-            email: profile.email,
-            username: profile.display_name || profile.id,
-            spotifyId: profile.id,
-            provider: "spotify",
-          };
+          // check if user exists
+          const existingUser = await strapi
+            .documents("plugin::users-permissions.user")
+            .findMany({ filters: { spotifyId: profile.id } });
+
+          if (existingUser.length > 0) {
+            // update token
+            await strapi.documents("plugin::users-permissions.user").update({
+              documentId: existingUser[0].documentId,
+              data: { accessToken },
+            });
+
+            return existingUser[0];
+          }
+
+          // create new user
+          return await strapi
+            .documents("plugin::users-permissions.user")
+            .create({
+              data: {
+                email: profile.email,
+                username: profile.display_name || profile.id,
+                spotifyId: profile.id,
+                accessToken,
+                provider: "spotify",
+              },
+            });
         },
       });
   },
