@@ -45,7 +45,7 @@ export default {
             // update token
             await strapi.documents("plugin::users-permissions.user").update({
               documentId: existingUser[0].documentId,
-              data: { accessToken },
+              data: { accessToken } as any,
             });
 
             return existingUser[0];
